@@ -1195,7 +1195,7 @@ class Dropbox.Client
   # This is called internally by the other client functions, and should not be
   # used outside the {Dropbox.Client} class.
   urlEncodePath: (path) ->
-    Dropbox.Xhr.urlEncodeValue(@normalizePath(path)).replace /%2F/gi, '/'
+    Dropbox.Xhr.urlEncodeValue(@normalizePath(path)).replace(/\~/g, '%7E').replace(/%2F/gi, '/')
 
   # Normalizes a Dropbox path for API requests.
   #
